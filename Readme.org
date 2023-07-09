@@ -1,0 +1,12 @@
+* Tmux builder
+This Dockerfile builds =tmux= from source and outputs the binary and man files to the builder host.
+Allows compilation of newer tmux versions without the need to install anything, other than Docker.
+Supports the following build args:
+ * =BASE_OS=
+ * =GIT_BRANCH=
+
+** Usage
+#+begin_src console
+  $ DOCKER_BUILDKIT=1 docker build -t tmux-builder --output ~/tmp/tmux/ \
+      --build-arg GIT_BRANCH=3.2a --build-arg BASE_OS=ubuntu:jammy .
+#+end_src
